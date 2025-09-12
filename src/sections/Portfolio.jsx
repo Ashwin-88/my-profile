@@ -1,4 +1,4 @@
-import Resume from "/docs/AshwinKumarPanda_8.8Years.pdf";
+import Resume from "../assets/AshwinKumarPanda_8.8Years.pdf";
 
 export default function Portfolio() {
   return (
