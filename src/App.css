@@ -1,0 +1,388 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+.question-input {
+  width: 90%;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: #fafafa;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  font-size: 16px;
+  font-weight: bold;
+  color: #666;
+}
+
+.question-input:focus {
+  border-color: #6a5acd; /* Slate blue */
+  box-shadow: 0 0 8px rgba(106, 90, 205, 0.4);
+  background: #fff;
+}
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298); /* dark blue gradient */
+  color: white; /* text visible now */
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.container {
+  display: flex;
+  background: rgba(255, 255, 255, 0.05); /* glassy card effect */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.tile {
+  background-color: #fff;
+  color: #333; /* 👈 dark gray text */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1 1 300px;
+  max-width: 300px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.tile h2, 
+.tile p {
+  color: #222; /* 👈 ensures headings & paragraphs are visible */
+}
+
+
+.tile:hover {
+  transform: translateY(-10px);
+}
+
+.tile .icon {
+  font-size: 50px;
+  margin-bottom: 10px;
+  color: #3498db;
+}
+
+.modal {
+  position: fixed;
+  z-index: 100;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+/* Modal box */
+.modal-content {
+  position: relative;
+  background: linear-gradient(135deg, #ffffff, #f9f9f9);
+  border-radius: 16px;
+  width: 80%;
+  max-width: 900px;
+  max-height: 80vh;   /* 👈 ensures modal never goes outside screen */
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 0.3s ease-out;
+  overflow: hidden;   /* 👈 hide scrollbars for header/footer */
+}
+
+/* Header */
+.modal-header {
+  width: 100%; /* full modal width */
+  height: 60px; /* fixed height */
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #1e3c72, #2a5298); /* dark blue gradient */
+  border-bottom: 2px solid #eee;
+  color: white; /* text visible now */
+  font-size: 1.3rem;
+  font-weight: bold;
+
+  display: flex;
+  align-items: center;   /* vertical center */
+  justify-content: space-between; /* space for title + close button */
+  box-sizing: border-box;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+/* Body with scroll */
+.modal-body {
+  padding: 20px;
+  overflow-y: auto;   /* 👈 scroll only content */
+  flex: 1;            /* takes available space */
+  background: linear-gradient(135deg, #4649ef, #af6eed, #e681b3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left;   /* 👈 left-align all text */
+}
+
+/* Footer */
+.modal-footer {
+  padding: 15px 20px;
+  border-top: 2px solid #eee;
+  text-align: right;
+}
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: #ff0000;
+}
+
+
+/* Text */
+.modal-content p, 
+.modal-content li {
+  color: #444;
+  line-height: 1.6;
+  font-size: 14px;
+  font-weight: bold;
+  color: #eee6e6;
+}
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: #ff0000; /* red hover effect */
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+}
+
+.close {
+  cursor: pointer;
+  font-size: 28px;
+}
+
+.ai-assistant-container {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #6366f1, #9333ea, #ec4899);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Card */
+.ai-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  padding: 32px;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+/* Header */
+.ai-header {
+  color: white;
+  margin-bottom: 24px;
+}
+.ai-header h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+.ai-header p {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+/* Input + Button */
+.ai-input-box {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+.ai-input {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.1);
+  outline: none;
+  transition: all 0.3s ease;
+}
+.ai-input:focus {
+  box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.5);
+}
+
+.ai-button {
+  background: linear-gradient(90deg, #4f46e5, #9333ea);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+.ai-button:hover {
+  background: linear-gradient(90deg, #4338ca, #7e22ce);
+  transform: translateY(-2px);
+}
+.ai-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Answer Box */
+.ai-answer {
+  text-align: left;
+  margin-top: 20px;
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.ai-answer p:first-child {
+  font-weight: 600;
+  color: #9333ea;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #666;
+}
+
+/* Footer */
+.ai-footer {
+  margin-top: 24px;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.5px;
+}
+ .education-item {
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.education-item h3 {
+    margin-top: 0;
+}
+.education-item p {
+    margin-bottom: 5px;
+}
+.modal-content a {
+  color: white;
+  text-decoration: underline; /* optional */
+}
+
+.modal-content a:hover {
+  color: #ddd; /* softer white/gray on hover */
+}
+.certificate-image {
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out;
+}
+
+.certificate-image:hover {
+  transform: scale(1.05);
+}
